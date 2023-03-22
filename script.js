@@ -1,7 +1,14 @@
+// Client-side JavaScript code
+
 const messageList = document.getElementById('message-list');
 const messageInput = document.getElementById('message-input');
 const sendButton = document.getElementById('send-button');
-const messages = JSON.parse(localStorage.getItem('chat-messages')) || [];
+
+const socket = io();
+
+socket.on('message', function(data) {
+  addMessage(data.sender, data.text);
+});
 
 function addMessage(sender, text) {
   const messageDiv = document.createElement('div');
@@ -18,34 +25,37 @@ function addMessage(sender, text) {
   messageList.scrollTop = messageList.scrollHeight;
 }
 
-function saveMessages() {
-  localStorage.setItem('chat-messages', JSON.stringify(messages));
-}
-
-function loadMessages() {
-  messages.forEach(message => {
-    addMessage(message.sender, message.text);
-  });
-}
-
-function sendMessage() {
+sendButton.addEventListener('click', function() {
   const message = messageInput.value;
-  if (message.trim() !== '') {
-    messages.push({sender: 'Me', text: message});
-    addMessage('Me', message);
-    messageInput.value = '';
-    saveMessages();
-  }
-}
-
-sendButton.addEventListener('click', sendMessage);
-
-messageInput.addEventListener('keydown', function(event) {
-  if (event.key === 'Enter') {
-    sendMessage();
-  }
+  socket.emit('message', {sender: 'Me', text: message});
+  messageInput.value = '';
 });
 
-window.addEventListener('load', function() {
-  loadMessages();
+// Server-side Node.js code using Socket.io
+
+const http = require('http');
+const express = require('express');
+const socketio = require('socket.io');
+
+const app = express();
+const server = http.createServer(app);
+const io = socketio(server);
+
+app.use(express.static(__dirname + '/public'));
+
+io.on('connection', function(socket) {
+  console.log('New user connected');
+  
+  socket.on('message', function(data) {
+    console.log('New message:', data.sender, data.text);
+    socket.broadcast.emit('message', data);
+  });
+
+  socket.on('disconnect', function() {
+    console.log('User disconnected');
+  });
+});
+
+server.listen(3000, function() {
+  console.log('Server listening on http://localhost:3000');
 });
