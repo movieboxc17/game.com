@@ -2,35 +2,18 @@
 <html>
   <head>
     <title>Discord Clone</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+      /* CSS styles here */
+    </style>
   </head>
   <body>
-    <div class="header">
-      <img src="discord_logo.png" alt="Discord logo">
-      <h1>Discord Clone</h1>
+    <div class="wrapper">
+      <div class="messages"></div>
+      <form class="message-form">
+        <input type="text" placeholder="Type your message...">
+        <button type="submit">Send</button>
+      </form>
     </div>
-    <div class="content">
-      <div class="sidebar">
-        <h2>Channels</h2>
-        <ul>
-          <li>#general</li>
-          <li>#random</li>
-        </ul>
-      </div>
-      <div class="chat">
-        <h2>#general</h2>
-        <div class="messages">
-          <div class="message">
-            <span class="username">JohnDoe</span>
-            <span class="timestamp">2:30 PM</span>
-            <p class="content">Hello, world!</p>
-          </div>
-        </div>
-        <form class="message-form">
-          <input type="text" placeholder="Type your message...">
-          <button type="submit">Send</button>
-        </form>
-      </div>
-    </div>
+    <script src="index.js"></script>
   </body>
 </html>
