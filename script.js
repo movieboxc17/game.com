@@ -28,12 +28,22 @@ function loadMessages() {
   });
 }
 
-sendButton.addEventListener('click', function() {
+function sendMessage() {
   const message = messageInput.value;
-  messages.push({sender: 'Me', text: message});
-  addMessage('Me', message);
-  messageInput.value = '';
-  saveMessages();
+  if (message.trim() !== '') {
+    messages.push({sender: 'Me', text: message});
+    addMessage('Me', message);
+    messageInput.value = '';
+    saveMessages();
+  }
+}
+
+sendButton.addEventListener('click', sendMessage);
+
+messageInput.addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    sendMessage();
+  }
 });
 
 window.addEventListener('load', function() {
