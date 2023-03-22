@@ -1,6 +1,7 @@
 const messageForm = document.getElementById('message-form');
 const messageInput = document.getElementById('message-input');
 const messagesContainer = document.getElementById('messages-container');
+const messagesBox = document.getElementById('messages-box');
 
 messageForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -12,6 +13,6 @@ messageForm.addEventListener('submit', (e) => {
   messageElement.classList.add('message');
   messageElement.innerText = messageText;
   messagesContainer.appendChild(messageElement);
+  messagesBox.innerHTML += `<div>${messageText}</div>`;
   messageInput.value = '';
 });
-
