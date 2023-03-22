@@ -2,7 +2,7 @@ let messages = [];
 
 const chatContainer = document.getElementById("chat-container");
 const sendButton = document.getElementById("send-button");
-const ws = new WebSocket("https://movieboxc17.github.io/game.com/");
+const ws = new WebSocket("ws://localhost:8080/");
 
 function displayMessages() {
   let chatContent = "";
