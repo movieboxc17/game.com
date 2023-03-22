@@ -48,7 +48,7 @@ io.on('connection', function(socket) {
   
   socket.on('message', function(data) {
     console.log('New message:', data.sender, data.text);
-    socket.broadcast.emit('message', data);
+    io.emit('message', data);
   });
 
   socket.on('disconnect', function() {
