@@ -1,6 +1,7 @@
 const messageList = document.getElementById('message-list');
 const messageInput = document.getElementById('message-input');
 const sendButton = document.getElementById('send-button');
+const messages = JSON.parse(localStorage.getItem('chat-messages')) || [];
 
 function addMessage(sender, text) {
   const messageDiv = document.createElement('div');
@@ -17,8 +18,24 @@ function addMessage(sender, text) {
   messageList.scrollTop = messageList.scrollHeight;
 }
 
+function saveMessages() {
+  localStorage.setItem('chat-messages', JSON.stringify(messages));
+}
+
+function loadMessages() {
+  messages.forEach(message => {
+    addMessage(message.sender, message.text);
+  });
+}
+
 sendButton.addEventListener('click', function() {
   const message = messageInput.value;
+  messages.push({sender: 'Me', text: message});
   addMessage('Me', message);
   messageInput.value = '';
+  saveMessages();
+});
+
+window.addEventListener('load', function() {
+  loadMessages();
 });
