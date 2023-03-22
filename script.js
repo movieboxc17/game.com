@@ -9,10 +9,11 @@ messageForm.addEventListener('submit', (e) => {
   if (messageText === '') {
     return;
   }
+  const messageTimestamp = new Date().toLocaleTimeString();
   const messageElement = document.createElement('div');
   messageElement.classList.add('message');
-  messageElement.innerText = messageText;
+  messageElement.innerHTML = `<span class="message-text">${messageText}</span><span class="message-timestamp">${messageTimestamp}</span>`;
   messagesContainer.appendChild(messageElement);
-  messagesBox.innerHTML += `<div>${messageText}</div>`;
+  messagesBox.innerHTML += `<div>${messageTimestamp}: ${messageText}</div>`;
   messageInput.value = '';
 });
