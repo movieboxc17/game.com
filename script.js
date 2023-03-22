@@ -1,19 +1,22 @@
-const messageForm = document.getElementById('message-form');
-const messageInput = document.getElementById('message-input');
-const messagesContainer = document.getElementById('messages-container');
-const messagesBox = document.getElementById('messages-box');
+const messageForm = document.querySelector('.message-form');
+const messageInput = document.querySelector('.message-form input[type="text"]');
+const messagesDiv = document.querySelector('.messages');
 
-messageForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const messageText = messageInput.value.trim();
-  if (messageText === '') {
-    return;
+messageForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const message = messageInput.value.trim();
+  if (message) {
+    const username = 'JohnDoe'; // You can change this to a dynamic value
+    const timestamp = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message');
+    messageElement.innerHTML = `
+      <span class="username">${username}</span>
+      <span class="timestamp">${timestamp}</span>
+      <p class="content">${message}</p>
+    `;
+    messagesDiv.appendChild(messageElement);
+    messageInput.value = '';
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
   }
-  const messageTimestamp = new Date().toLocaleTimeString();
-  const messageElement = document.createElement('div');
-  messageElement.classList.add('message');
-  messageElement.innerHTML = `<span class="message-text">${messageText}</span><span class="message-timestamp">${messageTimestamp}</span>`;
-  messagesContainer.appendChild(messageElement);
-  messagesBox.innerHTML += `<div>${messageTimestamp}: ${messageText}</div>`;
-  messageInput.value = '';
 });
