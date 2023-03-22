@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Discord Clone</title>
-    <style>
-      /* CSS styles here */
-    </style>
+    <title>Discord-like Messaging Platform</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="wrapper">
-      <div class="messages"></div>
-      <form class="message-form">
-        <input type="text" placeholder="Type your message...">
-        <button type="submit">Send</button>
-      </form>
-    </div>
-    <script src="index.js"></script>
+    <div id="message-container"></div>
+    <input type="text" id="message-input" placeholder="Type your message here" />
+    <button id="send-button">Send</button>
+
+    <script src="script.js"></script>
   </body>
 </html>
