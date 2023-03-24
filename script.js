@@ -42,12 +42,13 @@ windowsArray.forEach((window) => {
     window.classList.remove("active");
   });
 
-  minimizeButton.addEventListener("click", () => {
-    window.classList.remove("active");
-  });
-
   maximizeButton.addEventListener("click", () => {
     window.classList.toggle("maximized");
+    if (window.classList.contains("maximized")) {
+      maximizeButton.innerHTML = "&#xE923;";
+    } else {
+      maximizeButton.innerHTML = "&#xE922;";
+    }
   });
 
   // Window drag event
