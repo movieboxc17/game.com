@@ -1,71 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Google-Style Browser</title>
-	<style>
-		body {
-			margin: 0;
-			padding: 0;
-			font-family: Arial, sans-serif;
-		}
-		.container {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			height: 100vh;
-			background-color: #f2f2f2;
-		}
-		.search-form {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			margin-bottom: 20px;
-		}
-		.search-input {
-			padding: 10px;
-			border: none;
-			border-radius: 24px 0 0 24px;
-			width: 400px;
-			font-size: 16px;
-			color: #333;
-		}
-		.search-btn {
-			padding: 10px 20px;
-			background-color: #f2f2f2;
-			border: none;
-			border-radius: 0 24px 24px 0;
-			cursor: pointer;
-			font-size: 16px;
-			color: #333;
-		}
-		.search-btn:hover {
-			background-color: #e6e6e6;
-		}
-		.webview {
-			width: 100%;
-			height: calc(100% - 80px);
-			border: none;
-		}
-	</style>
-</head>
-<body>
-	<div class="container">
-		<div class="search-form">
-			<input type="text" class="search-input" placeholder="Search or enter website URL">
-			<button class="search-btn">Go</button>
-		</div>
-		<iframe class="webview" src=""></iframe>
-	</div>
-	<script>
-		const searchForm = document.querySelector('.search-form');
-		const searchInput = document.querySelector('.search-input');
-		const webview = document.querySelector('.webview');
+  <head>
+    <title>Google Browser</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div id="nav-bar">
+      <button id="back-btn"></button>
+      <button id="forward-btn"></button>
+      <input id="search-bar" type="text" placeholder="Search Google">
+      <button id="search-btn"></button>
+    </div>
+    <iframe id="browser-window" src="https://www.google.com"></iframe>
 
-		searchForm.addEventListener('submit', (event) => {
-			event.preventDefault();
-			webview.src = searchInput.value;
-		});
-	</script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
