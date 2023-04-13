@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Google Browser</title>
+    <title>Potatoes Browser</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <div id="nav-bar">
-      <button id="back-btn"></button>
-      <button id="forward-btn"></button>
-      <input id="search-bar" type="text" placeholder="Search Google">
-      <button id="search-btn"></button>
-    </div>
-    <iframe id="browser-window" src="https://www.google.com"></iframe>
+    <header>
+      <div class="logo-container">
+        <img src="potatoes-logo.png" alt="Potatoes Logo">
+        <h1>Potatoes Browser</h1>
+      </div>
+      <div class="search-container">
+        <form id="search-form">
+          <label for="search-input" class="sr-only">Search with Potatoes</label>
+          <input id="search-input" type="text" name="q" placeholder="Search with Potatoes">
+          <button type="submit" id="search-button"></button>
+        </form>
+      </div>
+    </header>
+    <main>
+      <div class="browser-container">
+        <iframe id="browser-window" src="https://www.google.com"></iframe>
+      </div>
+    </main>
 
     <script src="script.js"></script>
   </body>
