@@ -1,83 +1,62 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Windows Desktop Simulator</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="desktop">
-      <div class="taskbar">
-        <div class="start-button">Start</div>
-        <div class="taskbar-items">
-          <div class="taskbar-item active">Internet Explorer</div>
-          <div class="taskbar-item">File Explorer</div>
-          <div class="taskbar-item">Notepad</div>
-        </div>
-        <div class="system-tray">
-          <div class="clock">12:00 PM</div>
-          <div class="system-icons">
-            <div class="system-icon">Action Center</div>
-            <div class="system-icon">Wi-Fi</div>
-            <div class="system-icon">Battery</div>
-          </div>
-        </div>
-      </div>
-      <div class="icons">
-        <div class="icon internet-explorer">
-          <img src="icons/internet-explorer.png" alt="Internet Explorer" />
-          <div class="icon-label">Internet Explorer</div>
-        </div>
-        <div class="icon file-explorer">
-          <img src="icons/file-explorer.png" alt="File Explorer" />
-          <div class="icon-label">File Explorer</div>
-        </div>
-        <div class="icon notepad">
-          <img src="icons/notepad.png" alt="Notepad" />
-          <div class="icon-label">Notepad</div>
-        </div>
-      </div>
-      <div class="windows">
-        <div class="window internet-explorer active">
-          <div class="window-titlebar">
-            <div class="window-title">Internet Explorer</div>
-            <div class="window-buttons">
-              <div class="window-minimize-button">-</div>
-              <div class="window-maximize-button">[]</div>
-              <div class="window-close-button">X</div>
-            </div>
-          </div>
-          <div class="window-content">
-            <iframe src="https://www.google.com" frameborder="0"></iframe>
-          </div>
-        </div>
-        <div class="window file-explorer">
-          <div class="window-titlebar">
-            <div class="window-title">File Explorer</div>
-            <div class="window-buttons">
-              <div class="window-minimize-button">-</div>
-              <div class="window-maximize-button">[]</div>
-              <div class="window-close-button">X</div>
-            </div>
-          </div>
-          <div class="window-content">
-            This is the File Explorer window.
-          </div>
-        </div>
-        <div class="window notepad">
-          <div class="window-titlebar">
-            <div class="window-title">Notepad</div>
-            <div class="window-buttons">
-              <div class="window-minimize-button">-</div>
-              <div class="window-maximize-button">[]</div>
-              <div class="window-close-button">X</div>
-            </div>
-          </div>
-          <div class="window-content">
-            This is the Notepad window.
-          </div>
-        </div>
-      </div>
-    </div>
-    <script src="script.js"></script>
-  </body>
+<head>
+	<title>Karl X Gustav</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #fff;
+			color: #333;
+			margin: 0;
+			padding: 0;
+		}
+		.slide {
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			background-color: #f0f0f0;
+		}
+		.slide h1 {
+			font-size: 4em;
+			margin-bottom: 0.5em;
+			text-align: center;
+			color: #333;
+		}
+		.slide p {
+			font-size: 2em;
+			text-align: center;
+			margin: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="slide">
+		<h1>Karl X Gustav</h1>
+		<p>(1622-1660)</p>
+	</div>
+	<div class="slide">
+		<h1>King of Sweden</h1>
+		<p>1654-1660</p>
+	</div>
+	<div class="slide">
+		<h1>Military Commander</h1>
+		<p>Successful campaigns during his reign</p>
+	</div>
+	<div class="slide">
+		<h1>Second Northern War</h1>
+		<p>1655-1660</p>
+	</div>
+	<div class="slide">
+		<h1>Reforms</h1>
+		<p>Reduced power of nobility</p>
+		 <p>New legal code introduced</p>
+	</div>
+	<div class="slide">
+		<h1>Legacy</h1>
+		<p>Significant impact on Sweden's history</p>
+		<p>Remembered as one of its greatest kings</p>
+	</div>
+</body>
 </html>
