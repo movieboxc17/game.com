@@ -1,29 +1,52 @@
+/* Make the background white */
 body {
-  font-family: Arial, sans-serif;
+  background-color: white;
 }
 
-h1 {
+/* Set the font family to match Chrome */
+body, button, input, select, textarea {
+  font-family: 'Google Sans', sans-serif;
+}
+
+/* Add a top bar with the Chrome colors */
+.topbar {
+  background-color: #f5f5f5;
+  height: 36px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+/* Style the address bar */
+.address-bar {
+  background-color: white;
+  border: 1px solid #c1c1c1;
+  border-radius: 3px;
+  color: #5f6368;
+  height: 26px;
+  padding: 2px 6px;
+  margin: 5px 0 5px 5px;
+  width: 75%;
+}
+
+/* Style the Go button */
+.go-button {
+  background-color: #f2f2f2;
+  border: 1px solid #c6c6c6;
+  border-radius: 3px;
   color: #333;
-  text-align: center;
-}
-
-p {
-  font-size: 1.2em;
-  margin: 20px;
-}
-
-input {
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  margin-right: 10px;
-}
-
-button {
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
   cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  height: 32px;
+  padding: 0 16px;
+  margin: 4px 5px;
+}
+
+/* Add a shadow to the address bar when focused */
+.address-bar:focus {
+  box-shadow: 0 0 4px rgba(81, 203, 238, 0.8);
+  outline: none;
 }
