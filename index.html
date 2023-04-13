@@ -1,10 +1,53 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>My Webpage</title>
-</head>
-<body>
-	<h1>This is the Potato Browser</h1>
-	<p></p>
-</body>
+  <head>
+    <title>This is the Potato Browser</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        font-size: 2em;
+      }
+      
+      input {
+        width: 80%;
+        height: 2em;
+        font-size: 1em;
+        padding: 0.5em;
+        border: none;
+        border-radius: 0.5em;
+        margin-bottom: 1em;
+      }
+      
+      button {
+        width: 10%;
+        height: 2em;
+        font-size: 1em;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 0.5em;
+        margin-left: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="url-input" placeholder="Enter URL here">
+    <button id="go-button">Go</button>
+    <iframe id="browser-frame" width="100%" height="100%" frameborder="0"></iframe>
+    <script>
+      const goButton = document.querySelector('#go-button');
+      const urlInput = document.querySelector('#url-input');
+      const browserFrame = document.querySelector('#browser-frame');
+      
+      goButton.addEventListener('click', () => {
+        browserFrame.src = urlInput.value;
+      });
+    </script>
+  </body>
 </html>
