@@ -1,25 +1,10 @@
-const backBtn = document.getElementById('back-btn');
-const forwardBtn = document.getElementById('forward-btn');
-const searchBar = document.getElementById('search-bar');
-const searchBtn = document.getElementById('search-btn');
+const searchForm = document.getElementById('search-form');
+const searchInput = document.getElementById('search-input');
 const browserWindow = document.getElementById('browser-window');
 
-backBtn.addEventListener('click', () => {
-  browserWindow.contentWindow.history.back();
-});
-
-forwardBtn.addEventListener('click', () => {
-  browserWindow.contentWindow.history.forward();
-});
-
-searchBar.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') {
-    loadUrl(searchBar.value);
-  }
-});
-
-searchBtn.addEventListener('click', () => {
-  loadUrl(searchBar.value);
+searchForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  loadUrl('https://www.google.com/search?q=' + encodeURIComponent(searchInput.value));
 });
 
 function loadUrl(url) {
