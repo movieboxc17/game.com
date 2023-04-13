@@ -1,43 +1,71 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Simple Browser</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-      }
-      
-      #input {
-        padding: 8px;
-        margin-right: 8px;
-        width: 200px;
-      }
-      
-      #button {
-        padding: 8px;
-        background-color: lightblue;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-    </style>
-  </head>
-  <body>
-    <input id="input" type="text" placeholder="Enter a URL" />
-    <button id="button">Go</button>
-    
-    <script>
-      const button = document.getElementById("button");
-      
-      button.addEventListener("click", () => {
-        const url = document.getElementById("input").value;
-        window.open(url, "_blank");
-      });
-    </script>
-  </body>
+<head>
+	<title>Google-Style Browser</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+		}
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			background-color: #f2f2f2;
+		}
+		.search-form {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 20px;
+		}
+		.search-input {
+			padding: 10px;
+			border: none;
+			border-radius: 24px 0 0 24px;
+			width: 400px;
+			font-size: 16px;
+			color: #333;
+		}
+		.search-btn {
+			padding: 10px 20px;
+			background-color: #f2f2f2;
+			border: none;
+			border-radius: 0 24px 24px 0;
+			cursor: pointer;
+			font-size: 16px;
+			color: #333;
+		}
+		.search-btn:hover {
+			background-color: #e6e6e6;
+		}
+		.webview {
+			width: 100%;
+			height: calc(100% - 80px);
+			border: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="search-form">
+			<input type="text" class="search-input" placeholder="Search or enter website URL">
+			<button class="search-btn">Go</button>
+		</div>
+		<iframe class="webview" src=""></iframe>
+	</div>
+	<script>
+		const searchForm = document.querySelector('.search-form');
+		const searchInput = document.querySelector('.search-input');
+		const webview = document.querySelector('.webview');
+
+		searchForm.addEventListener('submit', (event) => {
+			event.preventDefault();
+			webview.src = searchInput.value;
+		});
+	</script>
+</body>
 </html>
