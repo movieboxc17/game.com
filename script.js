@@ -4,7 +4,7 @@ const browserWindow = document.getElementById('browser-window');
 
 searchForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  loadUrl('https://www.google.com/search?q=' + encodeURIComponent(searchInput.value));
+  loadUrl(searchInput.value);
 });
 
 function loadUrl(url) {
