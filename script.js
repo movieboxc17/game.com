@@ -1,34 +1,14 @@
-const slides = document.querySelectorAll('.slide');
-let currentSlide = 0;
+// Get the button element
+const button = document.querySelector('button');
 
-function showSlide(slideIndex) {
-  slides[currentSlide].classList.remove('active');
-  slides[slideIndex].classList.add('active');
-  currentSlide = slideIndex;
-}
-
-function nextSlide() {
-  let nextSlideIndex = currentSlide + 1;
-  if (nextSlideIndex >= slides.length) {
-    nextSlideIndex = 0;
-  }
-  showSlide(nextSlideIndex);
-}
-
-function previousSlide() {
-  let previousSlideIndex = currentSlide - 1;
-  if (previousSlideIndex < 0) {
-    previousSlideIndex = slides.length - 1;
-  }
-  showSlide(previousSlideIndex);
-}
-
-document.addEventListener('keydown', function(event) {
-  if (event.key === 'ArrowRight') {
-    nextSlide();
-  } else if (event.key === 'ArrowLeft') {
-    previousSlide();
-  }
+// Add a click event listener to the button
+button.addEventListener('click', function() {
+  // Get the input element
+  const input = document.querySelector('input');
+  
+  // Get the value of the input
+  const url = input.value;
+  
+  // Load the URL in a new window
+  window.open(url, '_blank');
 });
-
-setInterval(nextSlide, 5000);
