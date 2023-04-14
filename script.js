@@ -1,47 +1,56 @@
-let currentPlayer = "X";
-let gameBoard = [
-  ["", "", ""],
-  ["", "", ""],
-  ["", "", ""]
-];
+let board = ['', '', '', '', '', '', '', '', ''];
+let player = 'X';
+let result = document.getElementById('result');
+let cells = document.getElementsByTagName('td');
 
-function cellClicked(cell) {
-  const row = cell.parentElement;
-  const rowIndex = Array.from(row.parentElement.children).indexOf(row);
-  const cellIndex = Array.from(row.children).indexOf(cell);
-
-  if (gameBoard[rowIndex][cellIndex] !== "") {
+function play(cell) {
+  if (board[cell.id] !== '') {
     return;
   }
-
-  cell.innerText = currentPlayer;
-  gameBoard[rowIndex][cellIndex] = currentPlayer;
-
-  if (checkForWinner()) {
-    alert(`${currentPlayer} won the game!`);
-    resetGame();
+  cell.innerHTML = player;
+  board[cell.id] = player;
+  if (checkWin()) {
+    result.innerHTML = `${player} wins!`;
+    disableBoard();
     return;
   }
-
-  if (checkForTie()) {
-    alert("The game ended in a tie!");
-    resetGame();
+  if (board.every((val) => val !== '')) {
+    result.innerHTML = "It's a tie!";
+    disableBoard();
     return;
   }
-
-  currentPlayer = currentPlayer === "X" ? "O" : "X";
+  player = player === 'X' ? 'O' : 'X';
+  result.innerHTML = `${player}'s turn`;
 }
 
-function checkForWinner() {
-  for (let i = 0; i < 3; i++) {
-    if (gameBoard[i][0] !== "" && gameBoard[i][0] === gameBoard[i][1] && gameBoard[i][1] === gameBoard[i][2]) {
-      return true;
-    }
-    if (gameBoard[0][i] !== "" && gameBoard[0][i] === gameBoard[1][i] && gameBoard[1][i] === gameBoard[2][i]) {
+function checkWin() {
+  const lines = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i];
+    if (board[a] !== '' && board[a] === board[b] && board[a] === board[c]) {
       return true;
     }
   }
-  if (gameBoard[0][0] !== "" && gameBoard[0][0] === gameBoard[1][1] && gameBoard[1][1] === gameBoard[2][2]) {
-    return true;
+  return false;
+}
+
+function disableBoard() {
+  for (let i = 0; i < cells.length; i++) {
+    cells[i].removeEventListener('click', onCellClicked);
   }
-  if (gameBoard[0][2] !== "" && gameBoard[0][2] === game
+}
+
+function reset() {
+  board = ['', '', '', '', '', '', '', '', ''];
+  player = 'X';
+  result.innerHTML = `${player}'s turn`;
+  for (let i = 0; i < cells.length
