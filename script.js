@@ -1,34 +1,47 @@
-// Define a function to check if an IP address is within a range
-function ipInRange(ip, start, end) {
-  var parts = ip.split('.');
-  var sParts = start.split('.');
-  var eParts = end.split('.');
-  for (var i = 0; i < 4; i++) {
-    var part = parseInt(parts[i], 10);
-    var sPart = parseInt(sParts[i], 10);
-    var ePart = parseInt(eParts[i], 10);
-    if (part < sPart || part > ePart) {
-      return false;
-    }
-  }
-  return true;
-}
-
-// Define the firewall rules
-var firewallRules = [
-  {type: 'allow', protocol: 'tcp', port: 80, ipRangeStart: '192.168.0.1', ipRangeEnd: '192.168.0.255'},
-  {type: 'allow', protocol: 'tcp', port: 443, ipRangeStart: '192.168.0.1', ipRangeEnd: '192.168.0.255'},
-  {type: 'deny', protocol: 'tcp', port: 3389, ipRangeStart: '0.0.0.0', ipRangeEnd: '255.255.255.255'},
-  {type: 'deny', protocol: 'udp', port: 53, ipRangeStart: '0.0.0.0', ipRangeEnd: '255.255.255.255'},
+let currentPlayer = "X";
+let gameBoard = [
+  ["", "", ""],
+  ["", "", ""],
+  ["", "", ""]
 ];
 
-// Define a function to check if a packet is allowed by the firewall
-function isAllowed(protocol, port, ipAddress) {
-  for (var i = 0; i < firewallRules.length; i++) {
-    var rule = firewallRules[i];
-    if (rule.protocol === protocol && rule.port === port && ipInRange(ipAddress, rule.ipRangeStart, rule.ipRangeEnd)) {
-      return rule.type === 'allow';
+function cellClicked(cell) {
+  const row = cell.parentElement;
+  const rowIndex = Array.from(row.parentElement.children).indexOf(row);
+  const cellIndex = Array.from(row.children).indexOf(cell);
+
+  if (gameBoard[rowIndex][cellIndex] !== "") {
+    return;
+  }
+
+  cell.innerText = currentPlayer;
+  gameBoard[rowIndex][cellIndex] = currentPlayer;
+
+  if (checkForWinner()) {
+    alert(`${currentPlayer} won the game!`);
+    resetGame();
+    return;
+  }
+
+  if (checkForTie()) {
+    alert("The game ended in a tie!");
+    resetGame();
+    return;
+  }
+
+  currentPlayer = currentPlayer === "X" ? "O" : "X";
+}
+
+function checkForWinner() {
+  for (let i = 0; i < 3; i++) {
+    if (gameBoard[i][0] !== "" && gameBoard[i][0] === gameBoard[i][1] && gameBoard[i][1] === gameBoard[i][2]) {
+      return true;
+    }
+    if (gameBoard[0][i] !== "" && gameBoard[0][i] === gameBoard[1][i] && gameBoard[1][i] === gameBoard[2][i]) {
+      return true;
     }
   }
-  return false;
-}
+  if (gameBoard[0][0] !== "" && gameBoard[0][0] === gameBoard[1][1] && gameBoard[1][1] === gameBoard[2][2]) {
+    return true;
+  }
+  if (gameBoard[0][2] !== "" && gameBoard[0][2] === game
