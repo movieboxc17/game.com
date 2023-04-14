@@ -1,21 +1,23 @@
-.game {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+table {
+  border-collapse: collapse;
+  margin: 20px auto;
 }
 
-.row {
-  display: flex;
-  flex-direction: row;
-}
-
-.cell {
+td {
   width: 100px;
   height: 100px;
   border: 1px solid black;
-  margin: 5px;
-  font-size: 72px;
   text-align: center;
-  line-height: 100px;
-  cursor: pointer;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+td:hover {
+  background-color: #ddd;
+}
+
+button {
+  font-size: 24px;
+  padding: 10px;
+  margin: 20px;
 }
