@@ -1,128 +1,38 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Coffee Shop</title>
-	<style>
-		/* CSS styles */
-		body {
-			font-family: Arial, sans-serif;
-			background-color: #f4f4f4;
-			margin: 0;
-			padding: 0;
-		}
-
-		header {
-			background-color: #333;
-			color: #fff;
-			padding: 20px;
-			text-align: center;
-		}
-
-		h1 {
-			margin: 0;
-		}
-
-		.container {
-			max-width: 1000px;
-			margin: 0 auto;
-			padding: 20px;
-			display: flex;
-			flex-wrap: wrap;
-		}
-
-		.item {
-			flex: 1 1 300px;
-			background-color: #fff;
-			margin: 10px;
-			padding: 20px;
-			border-radius: 5px;
-			box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
-			transition: all 0.3s ease-in-out;
-		}
-
-		.item:hover {
-			transform: scale(1.05);
-			box-shadow: 0px 5px 10px rgba(0,0,0,0.5);
-		}
-
-		.item img {
-			max-width: 100%;
-			height: auto;
-			margin-bottom: 10px;
-			border-radius: 5px;
-		}
-
-		.item h2 {
-			font-size: 24px;
-			margin: 0;
-		}
-
-		.item p {
-			font-size: 18px;
-			margin-top: 10px;
-			color: #888;
-		}
-
-		.button {
-			background-color: #333;
-			color: #fff;
-			border: none;
-			padding: 10px 20px;
-			border-radius: 5px;
-			font-size: 18px;
-			cursor: pointer;
-			margin-top: 20px;
-			transition: all 0.3s ease-in-out;
-		}
-
-		.button:hover {
-			background-color: #fff;
-			color: #333;
-			border: 1px solid #333;
-		}
-
-		.checkout-button {
-			margin-top: 40px;
-			text-align: right;
-		}
-
-		.checkout-button button {
-			background-color: #333;
-			color: #fff;
-			border: none;
-			padding: 10px 20px;
-			border-radius: 5px;
-			font-size: 18px;
-			cursor: pointer;
-			transition: all 0.3s ease-in-out;
-		}
-
-		.checkout-button button:hover {
-			background-color: #fff;
-			color: #333;
-			border: 1px solid #333;
-		}
-
-		.modal {
-			display: none;
-			position: fixed;
-			z-index: 1;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
-			overflow: auto;
-			background-color: rgba(0,0,0,0.5);
-		}
-
-		.modal-content {
-			background-color: #fff;
-			margin: 15% auto;
-			padding: 20px;
-			border-radius: 5px;
-			width: 80%;
-			max-width: 600px;
-		}
-
-		.modal-header {
-			border-bottom: 
+  <head>
+    <title>Coffee Shop</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Coffee Shop</h1>
+    <div class="menu">
+      <h2>Menu</h2>
+      <ul>
+        <li>
+          <h3>Espresso</h3>
+          <p class="price">$2.50</p>
+          <button class="add-to-cart" onclick="addToCart('Espresso', 2.50)">Add to Cart</button>
+        </li>
+        <li>
+          <h3>Cappuccino</h3>
+          <p class="price">$3.50</p>
+          <button class="add-to-cart" onclick="addToCart('Cappuccino', 3.50)">Add to Cart</button>
+        </li>
+        <li>
+          <h3>Latte</h3>
+          <p class="price">$4.00</p>
+          <button class="add-to-cart" onclick="addToCart('Latte', 4.00)">Add to Cart</button>
+        </li>
+      </ul>
+    </div>
+    <div class="cart">
+      <h2>Cart</h2>
+      <ul id="cart-items">
+      </ul>
+      <p>Total: $<span id="cart-total">0.00</span></p>
+      <button onclick="checkout()">Checkout</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
