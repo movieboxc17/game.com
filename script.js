@@ -4,3 +4,4 @@ buttons.forEach(button => {
     alert('Item added to cart!');
   });
 });
+
