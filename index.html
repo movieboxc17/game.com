@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AppStore</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Apps</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>AppStore</h1>
-    <input type="text" placeholder="Search">
-  </header>
-  <main>
-    <div class="app">
-      <img src="https://via.placeholder.com/150" alt="App icon">
-      <h2>App Name</h2>
-      <p>Price: $0.99</p>
-      <button>Download</button>
+    <div id="container">
+        <div id="header">
+            <img src="logo.png">
+        </div>
+        <div id="content">
+            <div class="app">
+                <img src="flappy-bird.png">
+                <a href="flappy-bird.apk" download>Download</a>
+            </div>
+            <div class="app">
+                <img src="snake-io.png">
+                <a href="snake-io.apk" download>Download</a>
+            </div>
+        </div>
+        <div id="footer">
+            <p>&copy; Apps 2023</p>
+        </div>
     </div>
-    <!-- repeat app div for each app -->
-  </main>
-  <script src="script.js"></script>
 </body>
 </html>
