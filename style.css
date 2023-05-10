@@ -1,61 +1,63 @@
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #007aff;
-  color: white;
-  padding: 1rem;
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
 }
 
-header h1 {
-  margin: 0;
+#container {
+    margin: 0 auto;
+    max-width: 600px;
 }
 
-header input {
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  border: none;
-  margin-right: 1rem;
+#header {
+    background-color: #333333;
+    color: #ffffff;
+    height: 60px;
+    text-align: center;
 }
 
-main {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  padding: 1rem;
+#header img {
+    height: 40px;
+    margin-top: 10px;
+}
+
+#content {
+    padding: 20px;
 }
 
 .app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem;
-  background-color: white;
-  border-radius: 1rem;
-  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    width: 40%;
 }
 
 .app img {
-  width: 7rem;
-  height: 7rem;
-  object-fit: cover;
-  border-radius: 1rem;
-  margin-bottom: 0.5rem;
+    height: 100px;
+    margin-top: 20px;
 }
 
-.app h2 {
-  margin: 0;
+.app a {
+    background-color: #333333;
+    color: #ffffff;
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 10px;
+    text-decoration: none;
 }
 
-.app p {
-  margin: 0.5rem 0;
+.app a:hover {
+    background-color: #555555;
 }
 
-.app button {
-  padding: 0.5rem;
-  border: none;
-  border-radius: 0.5rem;
-  background-color: #007aff;
-  color: white;
-  cursor: pointer;
+#footer {
+    background-color: #333333;
+    color: #ffffff;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
 }
