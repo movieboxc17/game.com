@@ -1,125 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Free Apps - Flappy Bird</title>
-  <style>
-    /* Game container styles */
-    #game-container {
-      margin: 0 auto;
-      width: 288px;
-      height: 512px;
-      position: relative;
-      border: 1px solid #999;
-    }
-
-    /* Game over message styles */
-    #game-over {
-      display: none;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #fff;
-      padding: 20px;
-      border: 2px solid #333;
-      border-radius: 10px;
-      z-index: 1;
-    }
-
-    /* Score styles */
-    #score {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 36px;
-      font-weight: bold;
-      color: #fff;
-      text-shadow: 2px 2px #333;
-    }
-
-    /* Background image styles */
-    body {
-      background-image: url("background.png");
-      background-repeat: repeat-x;
-    }
-  </style>
+  <title>Netflix</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <div id="game-container">
-    <canvas id="canvas" width="288" height="512"></canvas>
-    <div id="game-over">
-      <p>Game Over</p>
-      <p>Score: <span id="final-score"></span></p>
-      <button id="play-again-btn">Play Again</button>
-    </div>
-    <div id="score">0</div>
-  </div>
+  <header>
+    <!-- Add Netflix logo and navigation -->
+  </header>
 
-  <script>
-    // Game variables
-    let canvas;
-    let ctx;
-    let bird;
-    let pipes = [];
-    let gameSpeed = 3;
-    let score = 0;
-    let gameOver = false;
-    let gameStarted = false;
+  <main>
+    <section id="hero">
+      <!-- Add hero image or video -->
+    </section>
 
-    // Load background image
-    let bg = new Image();
-    bg.src = "background.png";
+    <section id="categories">
+      <h2>Categories</h2>
+      <!-- Add category cards -->
+    </section>
 
-    // Load bird image
-    let birdImg = new Image();
-    birdImg.src = "bird.png";
+    <section id="popular">
+      <h2>Popular Shows and Movies</h2>
+      <!-- Add popular show and movie cards -->
+    </section>
 
-    // Load pipe image
-    let pipeImg = new Image();
-    pipeImg.src = "pipe.png";
+    <section id="trending">
+      <h2>Trending Now</h2>
+      <!-- Add trending show and movie cards -->
+    </section>
 
-    // Load game over image
-    let gameOverImg = new Image();
-    gameOverImg.src = "gameover.png";
+    <section id="footer">
+      <!-- Add footer content -->
+    </section>
+  </main>
 
-    // Pipe class
-    class Pipe {
-      constructor() {
-        this.x = canvas.width;
-        this.y = Math.random() * (canvas.height - 100) + 50;
-        this.width = 52;
-        this.height = 320;
-        this.speed = gameSpeed;
-      }
-
-      draw() {
-        ctx.drawImage(pipeImg, this.x, this.y, this.width, this.height);
-        ctx.drawImage(pipeImg, this.x, this.y - canvas.height - this.height - 100, this.width, this.height);
-      }
-
-      update() {
-        this.x -= this.speed;
-      }
-    }
-
-    // Bird class
-    class Bird {
-      constructor() {
-        this.x = 50;
-        this.y = canvas.height / 2;
-        this.width = 34;
-        this.height = 24;
-        this.speed = 0;
-        this.gravity = 0.5;
-        this.jump = 10;
-      }
-
-      draw() {
-        ctx.drawImage(birdImg, this.x, this.y, this.width, this.height);
-      }
-
-      update() {
-        this.speed += this.gravity;
-        this.y += this.speed;
-
+  <script src="script.js"></script>
+</body>
+</html>
